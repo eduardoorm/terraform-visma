@@ -1,0 +1,61 @@
+# Project Configuration
+project_id = "atomic-shooter-5p231"
+
+# Environment
+environment = "develop"
+project_name = "gcp-poc"
+
+# Default Labels
+default_labels = {
+  environment = "develop"
+  project     = "gcp-poc"
+  managed-by  = "terraform"
+}
+
+# Region Configuration
+region = "us-central1"
+zone   = "us-central1-a"
+
+# GitHub Configuration for Workload Identity Federation
+github_repository_owner = "sagoyanfisic"
+github_repositories = [
+  "genai-dev-guide"
+]
+
+# Storage Configuration
+storage_location = "US"
+
+# Cloud SQL Configuration
+db_instance_name = "main"
+db_tier = "db-f1-micro"
+db_name = "poc_database"
+db_user = "poc_user"
+
+# Artifact Registry Configuration
+artifact_registry_repository = "poc-repo"
+artifact_registry_format    = "DOCKER"
+
+# Cloud Run Configuration
+cloud_run_service_name = "genaiapp"
+cloud_run_image        = ""
+cloud_run_port         = 8080
+
+# Cloud Run Scaling Configuration
+min_instances = 0          # Escala a 0 para ahorrar costos cuando no hay tráfico
+max_instances = 5          # Máximo 5 instancias para POC
+cpu_limit     = "1000m"    # 1 CPU virtual
+memory_limit  = "512Mi"    # 512MB RAM - ajusta según necesidades
+
+# Cloud Run Resource Management
+cpu_request       = "100m"   # CPU mínimo garantizado
+memory_request    = "128Mi"  # Memoria mínima garantizada
+cpu_idle          = true     # Permite escalamiento a 0 basado en CPU
+startup_cpu_boost = true     # Boost de CPU durante startup
+
+# External Database Configuration
+DB_HOST     = "10.133.0.5"
+DB_PORT     = "3306"
+DB_NAME     = "poc_database"
+DB_USER     = "poc_user"
+DB_PASSWORD = ""
+SECRET_NAME = "develop_poc-database"
